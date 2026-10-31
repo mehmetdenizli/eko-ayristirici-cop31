@@ -1,0 +1,223 @@
+/* ===================================================================
+   EKO-AYRIŞTIRICI: SIFIR ATIK LABORATUVARI (COP31 ANTALYA)
+   PREMIUM DESIGN SYSTEM & CSS TOKENS
+   =================================================================== */
+
+:root {
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Temel Renk Paleti - Derin Çevreci Siberpunk & Akdeniz Mavisi */
+  --bg-deep: #060b13;
+  --bg-card: rgba(15, 23, 42, 0.78);
+  --bg-card-hover: rgba(30, 41, 59, 0.85);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(16, 185, 129, 0.35);
+
+  /* Canlı Vurgu Renkleri */
+  --eco-emerald: #10B981;
+  --eco-glow: rgba(16, 185, 129, 0.4);
+  --eco-teal: #14B8A6;
+  --eco-cyan: #06B6D4;
+
+  /* Geri Dönüşüm Hazne Renkleri */
+  --bin-plastic: #F59E0B;
+  --bin-plastic-glow: rgba(245, 158, 11, 0.35);
+  --bin-paper: #3B82F6;
+  --bin-paper-glow: rgba(59, 130, 246, 0.35);
+  --bin-glass: #10B981;
+  --bin-glass-glow: rgba(16, 185, 129, 0.35);
+  --bin-organic: #84CC16;
+  --bin-organic-glow: rgba(132, 204, 22, 0.35);
+  --bin-hazardous: #EC4899;
+  --bin-hazardous-glow: rgba(236, 72, 153, 0.35);
+
+  /* Metin Renkleri */
+  --text-white: #F8FAFC;
+  --text-muted: #94A3B8;
+  --text-dim: #64748B;
+
+  /* Durum & Efekt */
+  --danger: #EF4444;
+  --danger-glow: rgba(239, 68, 68, 0.4);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  font-family: var(--font-body);
+  background-color: var(--bg-deep);
+  color: var(--text-white);
+  overflow-x: hidden;
+  line-height: 1.5;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Arka plan siber ızgara deseni */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 50% 15%, rgba(16, 185, 129, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 90% 85%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ana Konteyner */
+.app-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+/* Glassmorphism Yardımcı Sınıf */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Buton Stilleri */
+.btn {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all var(--transition-normal);
+  outline: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px var(--eco-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(16, 185, 129, 0.6);
+  filter: brightness(1.08);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--border-subtle);
+  color: var(--text-white);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-icon:hover {
+  color: var(--text-white);
+  background: rgba(255, 255, 255, 0.14);
+  transform: scale(1.05);
+}
+
+/* Hata Titremesi Animasyonu */
+@keyframes shakeScreen {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.shake-active {
+  animation: shakeScreen 0.35s ease;
+}
+
+/* Konveyör Bandı Çizgili Hareketi */
+@keyframes conveyorMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 50px 0; }
+}
+
+/* Yumuşak Süzülme Animasyonu */
+@keyframes floatItem {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+/* Lazer Tarayıcı Titreşimi */
+@keyframes scanPulse {
+  0%, 100% { opacity: 0.5; box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
+  50% { opacity: 0.9; box-shadow: 0 0 28px rgba(16, 185, 129, 0.8); }
+}
+
+/* Parıltı & Kombo Halesi */
+@keyframes auraPulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.5)); }
+  50% { transform: scale(1.08); filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.9)); }
+}
+
+/* Modal Açılış */
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 768px) {
+  .app-container {
+    padding-bottom: 2rem;
+  }
+}
